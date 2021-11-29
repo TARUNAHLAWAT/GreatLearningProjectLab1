@@ -16,8 +16,13 @@ public class CredentialService {
 		String values= capitalLetters+smallLetters+Numbers+Special;
 		Random random= new Random();
 		char[] password= new char[8];
-		for(int i=0; i<8;i++) {
-			password[i]= values.charAt(random.nextInt(values.length()));
+		password[0] = smallLetters.charAt(random.nextInt(smallLetters.length()));
+	      password[1] = capitalLetters.charAt(random.nextInt(capitalLetters.length()));
+	      password[2] = Special.charAt(random.nextInt(Special.length()));
+	      password[3] = Numbers.charAt(random.nextInt(Numbers.length()));
+	   
+	      for(int i = 4; i< 8 ; i++) {
+	         password[i] = values.charAt(random.nextInt(values.length()));
 		}
 			return String.valueOf(password);	
 	}
